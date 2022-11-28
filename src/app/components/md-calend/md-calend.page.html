@@ -1,0 +1,28 @@
+<ion-header>
+
+  <ion-title>Detalles</ion-title>
+
+</ion-header>
+
+<ion-content>
+<ion-label *ngIf="titleEvent != 'asignatura'" >{{titleEvent}}</ion-label>
+<ion-input *ngIf="titleEvent == 'asignatura'"  placeholder="Ingresa tu asignatura" type="text" max="5" [(ngModel)]="getTitle" pattern="/^[a-zA-Z\s]*$/"></ion-input>
+
+<ion-item>
+  
+  <ion-datetime presentation="date-time" [preferWheel]="true" displayFormat="DDDD D de MMM - HH:mm "  minuteValues="0" pickerFormat="DD MMMM HH:mm" (ngModelChange)="onchangeStart($event)" [(ngModel)]="event.startTime" placeholder="inicio" doneText="guardar" cancelText="cancelar"></ion-datetime>
+    </ion-item>
+    <ion-label>Fin</ion-label>
+    <ion-item>
+     
+      <ion-datetime  presentation="date-time" [preferWheel]="true" displayFormat="DDDD D de MMM - HH:mm" minuteValues="0" name="adjf" pickerFormat="D MMMM HH:mm" [min]="mintime"  [(ngModel)]="event.endTime" placeholder="fin" doneText="guardar" cancelText="cancelar"></ion-datetime>
+    </ion-item>
+
+<ion-button *ngIf="titleEvent == 'asignatura'" [disabled]="getTitle == null || getTitle == '' || getTitle == ' ' || getTitle == '  ' || getTitle == '   '" (click)="save()">
+  <ion-icon name="checkmark"></ion-icon> Agregar
+</ion-button>
+<ion-button *ngIf="titleEvent != 'asignatura'"  (click)="save()">
+  <ion-icon name="checkmark"></ion-icon> Agregar
+</ion-button>
+
+</ion-content>

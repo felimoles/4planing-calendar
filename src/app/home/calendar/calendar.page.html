@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>calendar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+{{viewTitleMonth}} {{viewTitleYear}}
+
+    <ng-template #templateweek let-displayEvent="displayEvent">
+ 
+      <div class="calendar-event-inner {{displayEvent.event.type}} ">{{displayEvent.event.title}}</div>
+  
+    </ng-template>
+    
+    <ng-template #template2 let-day="day" let-eventTemplate="eventTemplate">
+      <div [ngClass]="{'calendar-event-wrap': day.events}" *ngIf="day.events"
+           [ngStyle]="{height: 25*day.events.length+'px'}">
+          <div *ngFor="let displayEvent of day.events" class="calendar-event" tappable
+               (click)="onEventSelected(displayEvent.event)"
+               [ngStyle]="{top: 25*displayEvent.position+'px', width: 100*(displayEvent.endIndex-displayEvent.startIndex)+'%', height: '25px'}">
+              <ng-template [ngTemplateOutlet]="eventTemplate"
+                           [ngTemplateOutletContext]="{displayEvent:displayEvent}">
+              </ng-template>
+          </div>
+      </div>
+  </ng-template>
+<calendar
+       
+         
+          [eventSource]="eventSource"
+          [calendarMode]="calendar.mode"
+          [currentDate]="calendar.currentDate"
+          (onEventSelected)="editEvent($event)"
+          (onTitleChanged)="onViewTitleChanged($event)"
+          (onTimeSelected)="onTimeSelected($event)"
+          (onRangeChanged)="onRangeChanged($event)"
+          [formatDayTitle]="calendar.formatTitle"
+          (onCurrentDateChanged)="onCurrentDateChanged($event)"
+          [formatWeekTitle]="calendar.formatWeekTitle"
+          [allDayLabel]="calendar.allday"
+          [dateFormatter]="calendar.dateFormatter"
+          [startingDayMonth]="1"
+          [startingDayWeek]="1"
+          [dayviewNormalEventTemplate]="template"
+          [weekviewNormalEventTemplate]="templateweek"
+          [weekviewAllDayEventSectionTemplate]="template2"
+          
+          [step]="calendar.step"
+          class="calendar">
+        </calendar>
+
+
+
+<ion-label *ngIf="cal">e</ion-label>
+<ion-fab vertical="bottom" horizontal="end" >
+  <ion-fab-button>
+    <ion-icon name="add-circle"></ion-icon>
+  </ion-fab-button>
+  <ion-fab-list side="top">
+    
+    <ion-fab-button><ion-icon (click)="addEvent('asignatura')" name="add-outline"></ion-icon></ion-fab-button>
+    <ion-fab-button><ion-icon (click)="addEvent('Sueño')" name="reader-outline"></ion-icon></ion-fab-button>
+    <ion-fab-button><ion-icon (click)="print()" name="print-outline"></ion-icon></ion-fab-button>
+  </ion-fab-list>
+</ion-fab>
+</ion-content>

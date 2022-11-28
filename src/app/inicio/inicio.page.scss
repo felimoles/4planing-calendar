@@ -1,0 +1,50 @@
+
+
+	ion-content {
+		
+		--background: transparent url('../../assets/imgs/background.png') top center no-repeat;
+		background-size: cover;
+		ion-header::after,
+		ion-footer::before {
+			display: none !important;
+		}
+	
+		margin-bottom: 0px !important;
+		margin-top: 0px !important;
+	}
+	 ion-content .swiper {
+		height: 94% !important;
+	}
+	ion-content ion-slides .swiper-pagination {
+		bottom: 0 !important;
+	}
+	ion-content ion-slides .swiper-pagination .swiper-pagination-bullet {
+		background: #ffffff;
+		opacity: 1;
+	}
+	ion-content ion-slides .swiper-pagination .swiper-pagination-bullet-active {
+		background: #6e51cd;
+		opacity: 1;
+	}
+	ion-content ion-slide .slide-zoom {
+		align-items: center;
+		background-color: #ffffff;
+		border-radius: 25px;
+		display: flex;
+		height: 100% !important;
+		margin: 0 16px;
+		padding: 20px;
+	}
+	ion-content ion-slide .slide-zoom h2 {
+		color: #81358a;
+		font-size: 3rem;
+		font-weight: 700;
+	}
+
+	ion-content lottie-animation-view.lottie div{
+        height: 800px !important;
+        margin: -200px auto !important;
+        z-index: 1 !important;
+        position: relative !important;
+      }
+

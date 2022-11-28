@@ -1,0 +1,82 @@
+<ion-header>
+  <!--<ion-navbar color="primary">
+    <ion-buttons start>
+      <button ion-button icon-only (click)="cancel()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Editar</ion-title>
+  </ion-navbar>-->
+
+  <ion-row>
+    <ion-col col-2>
+      <button ion-button icon-start clear (click)="cancel()" class="barra">
+        <ion-icon name="arrow-back" id="profile-icon"></ion-icon>
+      </button>
+    </ion-col>
+    <ion-col col-8 text-center>
+      <h5 text-center class="texto">Editar</h5>
+    </ion-col>
+    <ion-col col-2>
+
+    </ion-col>
+  </ion-row>
+
+
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngIf="mode == 'ta'">
+          <!--<ion-label stacked>Categoría</ion-label>-->
+          <!--<ion-select [(ngModel)]="selected" placeholder="escoge una categoria">
+            <ion-option *ngFor="let categorys of categorys" [value]="null">{{categorys.name}}</ion-option>
+          </ion-select>-->
+          <ion-label>{{nombre_categoria}}</ion-label>
+        </ion-item>
+
+        <ion-item *ngIf="mode != 'ta'">
+          <ion-label stacked></ion-label>
+          <ion-input *ngIf="titleEvent == asignatura" placeholder="Ingresa tu asignatura" type="text" max="5"
+            [(ngModel)]="getTitle" pattern="/^[a-zA-Z\s]*$/">
+          </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label stacked>fecha de Inicio</ion-label>
+          <ion-datetime displayFormat="DDDD D de MMM - HH" minuteValues="0" pickerFormat="DD MMM HH:mm"
+          [(ngModel)]="event.startTime" placeholder="inicio" doneText="guardar" cancelText="cancelar" (ngModelChange)="onchangeStart($event)"></ion-datetime>
+        </ion-item>
+
+        <ion-item>
+          <ion-label stacked>fecha del Fin</ion-label>
+          <ion-datetime displayFormat="DDDD D de MMM - HH" minuteValues="0" pickerFormat="DD MMM HH:mm"
+          [(ngModel)]="event.endTime" placeholder="fin" doneText="guardar" cancelText="cancelar" [min]="mintime"></ion-datetime>
+        </ion-item>
+
+      </ion-list>
+
+
+      <ion-row>
+        <ion-col col-12></ion-col>
+        <ion-col col-12></ion-col>
+        <ion-col col-12></ion-col>
+        <ion-col col-2></ion-col>
+        <ion-col col-8>
+          <button [disabled]="getTitle == null || getTitle == '' || getTitle == ' ' || getTitle == '  ' || getTitle == '   '"
+            ion-button full block class="boton" (click)="save()">
+            Guardar
+          </button>
+        </ion-col>
+        <ion-col col-2></ion-col>
+      </ion-row>
+
+
+    </ion-card-content>
+  </ion-card>
+
+
+</ion-content>

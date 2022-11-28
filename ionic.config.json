@@ -1,0 +1,7 @@
+{
+  "name": "ionic6-calendar",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,63 @@
+#container {
+    text-align: center;
+  
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  #container strong {
+    font-size: 20px;
+    line-height: 26px;
+  }
+  
+  #container p {
+    font-size: 16px;
+    line-height: 22px;
+  
+    color: #8c8c8c;
+  
+    margin: 0;
+  }
+  
+  #container a {
+    text-decoration: none;
+  }
+
+  .calendar-event-inner{
+    border-radius: 3px;
+    overflow: hidden;
+    background-color: #686868;
+    color: white;
+    height: 100%;
+    width: 100%;
+    padding: 2px;
+    line-height: 15px;
+    font-size: 1.2rem;
+    font-weight: bold;          
+    &.sueno {
+      // background-color: rgba(146, 13, 255, 0.822);
+      border: solid 2px #f29400;
+      color: #f29400;
+      background-color: transparent;
+    }
+    &.asignatura {
+      background-color: #009ee0;
+      width: 90%;
+    }
+    &.taut {
+      background-color: #116b89;
+      width: 90%;
+      float: right;
+      &:before {
+        content: "";
+        background-color: #fff;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        display: block;
+      }
+    }
+  }
